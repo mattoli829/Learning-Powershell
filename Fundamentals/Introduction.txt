@@ -1,0 +1,136 @@
+PS allows for more actions to be completed and allows for automation. Works with different application, OS, and softwares.
+
+TERMINAL
+=================================================================================================================================
+C:\Users\matthew.deoliveira> dir
+
+>>>
+    Directory: C:\Users\matthew.deoliveira
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----           7/20/2023 10:21 AM                .azure
+d----           7/19/2023  9:58 AM                .vscode
+d-r--           6/14/2023  3:47 PM                3D Objects
+d-r--           6/14/2023  3:47 PM                Contacts
+d-r--           4/15/2024  1:09 PM                Desktop
+d-r--           4/12/2024  9:33 AM                Documents
+d-r--           4/15/2024 12:45 PM                Downloads
+d-r--           6/14/2023  3:47 PM                Favorites
+d-r--           6/14/2023  3:47 PM                Links
+d-r--           6/14/2023  3:47 PM                Music
+d-r--            7/7/2023  3:50 PM                OneDrive
+d-r--            7/7/2023 12:11 PM                Pictures
+d-r--           6/14/2023  3:47 PM                Saved Games
+d-r--           6/14/2023  3:48 PM                Searches
+d-r--           6/19/2023  9:58 AM                Videos
+-a---           4/15/2024  1:00 PM            182 .gitconfig
+-----------------------------------------------------------------------------------------------------------------------------------
+# PS allows for piping and sorting 
+
+C:\Users\matthew.deoliveira> dir | sort-object               
+
+>>>
+    Directory: C:\Users\matthew.deoliveira
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----           7/20/2023 10:21 AM                .azure
+-a---           4/15/2024  1:00 PM            182 .gitconfig
+d----           7/19/2023  9:58 AM                .vscode
+d-r--           6/14/2023  3:47 PM                3D Objects
+d-r--           6/14/2023  3:47 PM                Contacts
+d-r--           4/15/2024  1:09 PM                Desktop
+d-r--           4/12/2024  9:33 AM                Documents
+d-r--           4/15/2024 12:45 PM                Downloads
+d-r--           6/14/2023  3:47 PM                Favorites
+d-r--           6/14/2023  3:47 PM                Links
+d-r--           6/14/2023  3:47 PM                Music
+d-r--            7/7/2023  3:50 PM                OneDrive
+d-r--            7/7/2023 12:11 PM                Pictures
+d-r--           6/14/2023  3:47 PM                Saved Games
+d-r--           6/14/2023  3:48 PM                Searches
+d-r--           6/19/2023  9:58 AM                Videos
+------------------------------------------------------------------------------------------------------------------------------------------
+# Allows for better organization/order
+
+C:\Users\matthew.deoliveira> dir | sort-object -Descending   
+
+>>>
+    Directory: C:\Users\matthew.deoliveira
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-r--           6/19/2023  9:58 AM                Videos
+d-r--           6/14/2023  3:48 PM                Searches
+d-r--           6/14/2023  3:47 PM                Saved Games
+d-r--            7/7/2023 12:11 PM                Pictures
+d-r--            7/7/2023  3:50 PM                OneDrive
+d-r--           6/14/2023  3:47 PM                Music
+d-r--           6/14/2023  3:47 PM                Links
+d-r--           6/14/2023  3:47 PM                Favorites
+d-r--           4/15/2024 12:45 PM                Downloads
+d-r--           4/12/2024  9:33 AM                Documents
+d-r--           4/15/2024  1:09 PM                Desktop
+d-r--           6/14/2023  3:47 PM                Contacts
+d-r--           6/14/2023  3:47 PM                3D Objects
+d----           7/19/2023  9:58 AM                .vscode
+-a---           4/15/2024  1:00 PM            182 .gitconfig
+d----           7/20/2023 10:21 AM                .azure
+
+------------------------------------------------------------------------------------------------------------------------
+# Add last WriteTime as a sort
+
+C:\Users\matthew.deoliveira> dir | sort-object -Descending -Property LastWriteTime   
+
+>>>>
+    Directory: C:\Users\matthew.deoliveira
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-r--           4/15/2024  1:09 PM                Desktop
+-a---           4/15/2024  1:00 PM            182 .gitconfig
+d-r--           4/15/2024 12:45 PM                Downloads
+d-r--           4/12/2024  9:33 AM                Documents
+d----           7/20/2023 10:21 AM                .azure
+d----           7/19/2023  9:58 AM                .vscode
+d-r--            7/7/2023  3:50 PM                OneDrive
+d-r--            7/7/2023 12:11 PM                Pictures
+d-r--           6/19/2023  9:58 AM                Videos
+d-r--           6/14/2023  3:48 PM                Searches
+d-r--           6/14/2023  3:47 PM                Links
+d-r--           6/14/2023  3:47 PM                Saved Games
+d-r--           6/14/2023  3:47 PM                Music
+d-r--           6/14/2023  3:47 PM                Favorites
+d-r--           6/14/2023  3:47 PM                Contacts
+d-r--           6/14/2023  3:47 PM                3D Objects
+
+-------------------------------------------------------------------------------------------------------------------------
+# Output for each object and their type 
+
+C:\Users\matthew.deoliveira> dir | foreach {"$($_.GetType().fullname) - $_.name"}
+
+
+>>>System.IO.DirectoryInfo - C:\Users\matthew.deoliveira\.azure.name
+>>>System.IO.DirectoryInfo - C:\Users\matthew.deoliveira\.vscode.name
+>>>System.IO.DirectoryInfo - C:\Users\matthew.deoliveira\3D Objects.name
+>>>System.IO.DirectoryInfo - C:\Users\matthew.deoliveira\Contacts.name
+>>>System.IO.DirectoryInfo - C:\Users\matthew.deoliveira\Desktop.name
+>>>System.IO.DirectoryInfo - C:\Users\matthew.deoliveira\Documents.name
+>>>System.IO.DirectoryInfo - C:\Users\matthew.deoliveira\Downloads.name
+>>>System.IO.DirectoryInfo - C:\Users\matthew.deoliveira\Favorites.name
+>>>System.IO.DirectoryInfo - C:\Users\matthew.deoliveira\Links.name
+>>>System.IO.DirectoryInfo - C:\Users\matthew.deoliveira\Music.name
+>>>System.IO.DirectoryInfo - C:\Users\matthew.deoliveira\OneDrive.name
+>>>System.IO.DirectoryInfo - C:\Users\matthew.deoliveira\Pictures.name
+>>>System.IO.DirectoryInfo - C:\Users\matthew.deoliveira\Saved Games.name
+>>>System.IO.DirectoryInfo - C:\Users\matthew.deoliveira\Searches.name
+>>>System.IO.DirectoryInfo - C:\Users\matthew.deoliveira\Videos.name
+>>>System.IO.FileInfo - C:\Users\matthew.deoliveira\.gitconfig.name
+=================================================================================================================================
+NOTES:
+
+"$_" represent the passed object
+
+
+
